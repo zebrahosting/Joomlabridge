@@ -1,0 +1,36 @@
+<?xml version='1.0'?>
+<schema>
+	<tables>
+		<table>
+			<name>vtiger_joomlabridge</name>
+			<sql><![CDATA[CREATE TABLE `vtiger_joomlabridge` (
+  `joomlabridgeid` int(11) NOT NULL DEFAULT '0',
+  `jb_no` varchar(100) DEFAULT NULL,
+  `contactid` int(19) DEFAULT NULL,
+  `jhostid` int(19) DEFAULT NULL,
+  `juser_id` int(19) DEFAULT NULL,
+  `juser_name` varchar(255) DEFAULT NULL,
+  `juser_username` varchar(150) DEFAULT NULL,
+  `juser_email` varchar(100) DEFAULT NULL,
+  `juser_password` varchar(100) DEFAULT NULL,
+  `juser_block` varchar(3) DEFAULT NULL,
+  `joomla_userlevels` text,
+  `juser_registerdate` datetime DEFAULT NULL,
+  `juser_lastvisitdate` datetime DEFAULT NULL,
+  `last_push_date` datetime DEFAULT NULL,
+  `last_pull_date` datetime DEFAULT NULL,
+  `juser_passwordc` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`joomlabridgeid`),
+  CONSTRAINT `fk_1_vtiger_joomlabridge` FOREIGN KEY (`joomlabridgeid`) REFERENCES `vtiger_crmentity` (`crmid`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8]]></sql>
+		</table>
+		<table>
+			<name>vtiger_joomlabridgecf</name>
+			<sql><![CDATA[CREATE TABLE `vtiger_joomlabridgecf` (
+  `joomlabridgeid` int(11) NOT NULL,
+  PRIMARY KEY (`joomlabridgeid`),
+  CONSTRAINT `fk_1_vtiger_joomlabridgecf` FOREIGN KEY (`joomlabridgeid`) REFERENCES `vtiger_crmentity` (`crmid`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8]]></sql>
+		</table>
+	</tables>
+</schema>
